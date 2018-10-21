@@ -1,0 +1,248 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8840,        238]
+NotebookOptionsPosition[      7574,        204]
+NotebookOutlinePosition[      7928,        220]
+CellTagsIndexPosition[      7885,        217]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mathematica Basics", "Title",
+ CellChangeTimes->{{3.7475967860544567`*^9, 
+  3.747596790757368*^9}},ExpressionUUID->"6657fc7f-1af7-4188-a692-\
+292d06a09cf8"],
+
+Cell[CellGroupData[{
+
+Cell["Animation", "Section",
+ CellChangeTimes->{{3.747596806004497*^9, 
+  3.747596813916277*^9}},ExpressionUUID->"326c31af-5f09-4ebd-901c-\
+5c59f391538b"],
+
+Cell["\<\
+We will animate graphs of two and three dimensions. We can do this for any \
+algebraic and and trigonometric functions.\
+\>", "Text",
+ CellChangeTimes->{{3.747596844132866*^9, 3.747596853675379*^9}, {
+  3.74759705319597*^9, 
+  3.7475971069688873`*^9}},ExpressionUUID->"b73f81da-c16d-4f36-94f0-\
+ec54cc7e9d38"],
+
+Cell[CellGroupData[{
+
+Cell["Animation  of Exponential Function.", "Subsubsection",
+ CellChangeTimes->{{3.747597135273405*^9, 
+  3.747597158350771*^9}},ExpressionUUID->"e1178bdf-578e-47b7-8140-\
+a43d84e45702"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"Exp", "[", 
+      RowBox[{"-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"x", "+", "2", "-", "t"}], ")"}], "2"]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "5", ",", "0.2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.747597161787037*^9, 3.747597249891983*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"e8c551c0-e99f-4044-8ad7-2fa08ab813b0"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 5, 0.2}}, Typeset`size$$ = {
+    360., {120., 125.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$19749$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$19749$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        Exp[-($CellContext`x + 2 - $CellContext`t$$)^2], {$CellContext`x, -2, 
+         2}, PlotRange -> {0, 1}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 5, 0.2, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {157., 163.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.747597251324854*^9},
+ CellLabel->"Out[57]=",ExpressionUUID->"94bd76b9-f924-4a36-b922-4bf6e887e25c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Animation of a Beat", "Subsubsection",
+ CellChangeTimes->{{3.747597369899528*^9, 
+  3.747597376954109*^9}},ExpressionUUID->"73442e4a-7679-432d-baf4-\
+95d4c7bbf467"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"x_", ",", "t_"}], "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"Cos", "[", 
+     RowBox[{"x", "+", "t"}], "]"}], "+", 
+    RowBox[{"Cos", "[", 
+     RowBox[{
+      RowBox[{"1.2", " ", "x"}], "+", 
+      RowBox[{"1.2", "t"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"x", ",", "t"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "16"}], ",", "16"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2.5"}], ",", "2.25"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "30", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7475973920008707`*^9, 3.7475975146966457`*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"ad192544-68ee-401d-8c4e-e14cd1034370"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], 0, 30, 1}}, Typeset`size$$ = {
+    360., {109., 114.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`t$24918$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$24918$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`f[$CellContext`x, $CellContext`t$$], {$CellContext`x, \
+-16, 16}, PlotRange -> {-2.5, 2.25}], 
+      "Specifications" :> {{$CellContext`t$$, 0, 30, 1, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {146., 152.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.747597519333899*^9},
+ CellLabel->"Out[59]=",ExpressionUUID->"2394fae1-e043-4316-9429-e97adf506474"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 587},
+WindowMargins->{{104, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 3, 98, "Title",ExpressionUUID->"6657fc7f-1af7-4188-a692-292d06a09cf8"],
+Cell[CellGroupData[{
+Cell[768, 29, 154, 3, 67, "Section",ExpressionUUID->"326c31af-5f09-4ebd-901c-5c59f391538b"],
+Cell[925, 34, 319, 7, 58, "Text",ExpressionUUID->"b73f81da-c16d-4f36-94f0-ec54cc7e9d38"],
+Cell[CellGroupData[{
+Cell[1269, 45, 186, 3, 45, "Subsubsection",ExpressionUUID->"e1178bdf-578e-47b7-8140-a43d84e45702"],
+Cell[CellGroupData[{
+Cell[1480, 52, 700, 19, 33, "Input",ExpressionUUID->"e8c551c0-e99f-4044-8ad7-2fa08ab813b0"],
+Cell[2183, 73, 2065, 41, 339, "Output",ExpressionUUID->"94bd76b9-f924-4a36-b922-4bf6e887e25c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4297, 120, 170, 3, 45, "Subsubsection",ExpressionUUID->"73442e4a-7679-432d-baf4-95d4c7bbf467"],
+Cell[CellGroupData[{
+Cell[4492, 127, 964, 28, 52, "Input",ExpressionUUID->"ad192544-68ee-401d-8c4e-e14cd1034370"],
+Cell[5459, 157, 2063, 41, 351, "Output",ExpressionUUID->"2394fae1-e043-4316-9429-e97adf506474"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

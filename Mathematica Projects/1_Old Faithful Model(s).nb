@@ -1,0 +1,470 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16411,        462]
+NotebookOptionsPosition[     13936,        413]
+NotebookOutlinePosition[     14317,        430]
+CellTagsIndexPosition[     14274,        427]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Lab 1 | Modeling Old Faithful' s Eruptions", "Title",
+ CellFrame->{{0, 0}, {0.5, 0}},
+ CellChangeTimes->{{3.748066919006588*^9, 3.748066963683249*^9}, 
+   3.7480710333021383`*^9},ExpressionUUID->"1dbfefa8-5708-484f-806c-\
+acaa36eaa38a"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Modeling", " ", "Data"}], "Chapter"]], "Input",
+ CellChangeTimes->{{3.748067042742229*^9, 
+  3.748067042829427*^9}},ExpressionUUID->"42cdd1e0-7dab-43cc-b526-\
+38403ed640a0"],
+
+Cell[CellGroupData[{
+
+Cell["Observations", "Subchapter",
+ CellChangeTimes->{{3.748067062840652*^9, 3.74806706287427*^9}, 
+   3.748067122832965*^9},ExpressionUUID->"526f60f5-6ac8-4a13-844e-\
+653561e13d48"],
+
+Cell["\<\
+Some observations about Old Faithful\[CloseCurlyQuote]s eruptions are listed \
+below
+
+\[FilledSmallCircle]   On the average, eruptions reach heights of 106 to 184 \
+feet and last 1.5 to 5.5 minutes.
+\[FilledSmallCircle]  The interval between eruptions can be as short as 30 \
+minutes or as long as 2 hours.
+\[FilledSmallCircle]  The yearly average for the interval between eruptions \
+has always been between 60 and 79   minutes.
+\[FilledSmallCircle]  The temperature of water at Old; Faithful\
+\[CloseCurlyQuote]s vent is about 204\[Degree]F.\
+\>", "Text",
+ CellChangeTimes->{{3.7480672209156113`*^9, 3.7480673304047003`*^9}, {
+  3.748067381240615*^9, 3.748067442127853*^9}, {3.7480674760400047`*^9, 
+  3.7480675384684*^9}},ExpressionUUID->"377b25b1-ab58-4998-b2ab-27c8e3cbe318"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Purpose", "Subchapter",
+ CellChangeTimes->{{3.748067579892223*^9, 
+  3.748067581866395*^9}},ExpressionUUID->"c1941bb0-9f3d-433f-a7a4-\
+896bf0b0cd17"],
+
+Cell["\<\
+In this model, I will model the data on Old Faithful\[CloseCurlyQuote]s \
+eruptions and the interval between the eruptions. I will compare my model \
+with the model found using Mathematica and the model Yellowstone Park uses to \
+predict Old Faithful eruptions to see if I can describe what it means to have \
+a \[OpenCurlyDoubleQuote]best-fitting\[CloseCurlyDoubleQuote] model.\
+\>", "Text",
+ CellChangeTimes->{{3.748067609755391*^9, 
+  3.748067627151669*^9}},ExpressionUUID->"6d9e8e14-512a-4537-8861-\
+23456f12586c"],
+
+Cell[CellGroupData[{
+
+Cell["Data", "Section",
+ CellChangeTimes->{{3.748067658479607*^9, 
+  3.74806766573104*^9}},ExpressionUUID->"5004f11c-f867-4cd6-b380-\
+48957d27572e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1.80", ",", "56"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.82", ",", "58"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.88", ",", "60"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.90", ",", "62"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.92", ",", "60"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.93", ",", "56"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.98", ",", "57"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.03", ",", "60"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.05", ",", "57"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.13", ",", "60"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.30", ",", "57"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.35", ",", "57"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.37", ",", "61"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.82", ",", "73"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.13", ",", "76"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.27", ",", "77"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.65", ",", "77"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.70", ",", "82"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.78", ",", "79"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.83", ",", "85"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.87", ",", "81"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.88", ",", "80"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.10", ",", "89"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.27", ",", "90"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.30", ",", "84"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.30", ",", "89"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.43", ",", "84"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.43", ",", "89"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.47", ",", "86"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.47", ",", "80"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.53", ",", "89"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.55", ",", "86"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"4.60", ",", "88"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.60", ",", "92"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.63", ",", "91"}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"e74dd19b-2b13-4d18-a2c6-c1b1ecce14fe"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"colheading", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Duration, x\>\"", ",", " ", "\"\<Interval, y\>\""}], "}"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"datatable", " ", "=", " ", 
+   RowBox[{"TableForm", "[", 
+    RowBox[{"data", ",", " ", 
+     RowBox[{"TableHeadings", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"None", ",", " ", "colheading"}], "}"}]}], ",", 
+     RowBox[{"TableAlignments", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Center", ",", " ", "Center"}], "}"}]}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.7480677152546587`*^9, 3.7480677953794403`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"fa7e740a-c126-46e1-9309-7278906904e0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["datatable"], "Input",
+ CellChangeTimes->{{3.7480677994570017`*^9, 3.7480678026496572`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"822f7e9c-0392-4085-a69d-c40fa5f3ef70"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"Duration, x\"\>",
+       HoldForm], 
+      TagBox["\<\"Interval, y\"\>",
+       HoldForm]},
+     {"1.8`", "56"},
+     {"1.82`", "58"},
+     {"1.88`", "60"},
+     {"1.9`", "62"},
+     {"1.92`", "60"},
+     {"1.93`", "56"},
+     {"1.98`", "57"},
+     {"2.03`", "60"},
+     {"2.05`", "57"},
+     {"2.13`", "60"},
+     {"2.3`", "57"},
+     {"2.35`", "57"},
+     {"2.37`", "61"},
+     {"2.82`", "73"},
+     {"3.13`", "76"},
+     {"3.27`", "77"},
+     {"3.65`", "77"},
+     {"3.7`", "82"},
+     {"3.78`", "79"},
+     {"3.83`", "85"},
+     {"3.87`", "81"},
+     {"3.88`", "80"},
+     {"4.1`", "89"},
+     {"4.27`", "90"},
+     {"4.3`", "84"},
+     {"4.3`", "89"},
+     {"4.43`", "84"},
+     {"4.43`", "89"},
+     {"4.47`", "86"},
+     {"4.47`", "80"},
+     {"4.53`", "89"},
+     {"4.55`", "86"},
+     {"4.6`", "88"},
+     {"4.6`", "92"},
+     {"4.63`", "91"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Center}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, TableHeadings -> {None, {"Duration, x", "Interval, y"}}, 
+    TableAlignments -> {Center, Center}]]]], "Output",
+ CellChangeTimes->{3.7480678042962*^9},
+ CellLabel->
+  "Out[19]//TableForm=",ExpressionUUID->"b6b19deb-c66a-491a-9865-\
+c532a0e03e93"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataplot", " ", "=", " ", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{"DataRange", " ", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "5"}], "}"}]}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", "\"\<Duration, x\>\"", "]"}], ",", 
+        RowBox[{"HoldForm", "[", "\"\<Interval,y\>\"", "]"}]}], "}"}]}], ",", 
+     " ", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Old Faithful Eruptions\>\""}]}], 
+    " ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.748070861437961*^9, 3.748070863105846*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"70bf7b44-ea69-4922-b3fd-75b23abacb24"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"dataplot", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", " ", "\"\<Old Faithful's Eruptions\>\""}], 
+   ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", "\"\<Interval\>\"", "]"}], ",", "None"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"HoldForm", "[", "\"\<Duration\>\"", "]"}], ",", "None"}], 
+       "}"}]}], "}"}]}], " ", ",", 
+   RowBox[{"LabelStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Times New Roman\>\"", ",", " ", "14", ",", " ", 
+      RowBox[{"GrayLevel", "[", "0", "]"}], ",", "Bold"}], "}"}]}], ",", " ", 
+   
+   RowBox[{"ImageSize", "->", "Large"}], ",", 
+   RowBox[{"Frame", "\[Rule]", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.74806787163168*^9, 3.748067972909127*^9}, {
+   3.7480680223194838`*^9, 3.7480680677154417`*^9}, {3.748068497916148*^9, 
+   3.748068644756983*^9}, {3.748068698941519*^9, 3.7480687046512938`*^9}, 
+   3.7480691380424433`*^9, {3.748070065792514*^9, 3.7480700692888308`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"2ce8100e-84ab-4394-bd2e-92e0872ba0d5"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxTTMoPSmViYGBQBmIQffYMCPyxZwADHwf51teBO+T+Qvm+DiLr3B9WifyD
+8v0c0sAAxvd32CEH0oCQByoG6vgHNw+sfd1/CL/Bx8GW6/riAlsGB1TzoHyg
+PFiaixFNngkuD3Evgv9NI6b/0FcY388ByAGKsEH4DkFQ8zih5gU7aIKUa3BB
+5YMdjMGAF86fNRMEoPyGEKh7+SD8A8EOSwpAIlC+QyjUfhg/BGofP9S+EKj7
+BaDyYdDwFISaHwa1H8pnCEXlA9VDwhchj8IHykPCG2ZeKCofaD8kPoXg6iHm
+C8HVQ9wH5TOEofHDHcDaW6H8A2EOAJefj70=
+      "]]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox[
+     TagBox["\"Duration, x\"", HoldForm], TraditionalForm], 
+    FormBox[
+     TagBox["\"Interval,y\"", HoldForm], TraditionalForm]},
+  AxesOrigin->{1.75578125, 54.20000000000001},
+  DisplayFunction->Identity,
+  Frame->True,
+  FrameLabel->{{
+     FormBox[
+      TagBox["\"Interval\"", HoldForm], TraditionalForm], None}, {
+     FormBox[
+      TagBox["\"Duration\"", HoldForm], TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->Large,
+  LabelStyle->{"Times New Roman", 14, 
+    GrayLevel[0], Bold},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["\"Old Faithful's Eruptions\"", TraditionalForm],
+  PlotRange->{{1.8, 4.63}, {56., 92.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.748067974790518*^9, 3.748068041732107*^9, 
+  3.74806853071318*^9, 3.748068620722537*^9, 3.748068707083438*^9, 
+  3.748069141124497*^9, 3.7480700737612743`*^9, 3.748070870658252*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"c31eb0b8-5c5d-40b2-b40b-7617e80ac24a"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.748070089286989*^9},
+ NumberMarks->False,ExpressionUUID->"96c735ff-b9cc-46f9-93c8-62fcd863e6de"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.748070083973298*^9, 
+  3.748070084001507*^9}},ExpressionUUID->"aa300c3c-bff0-47c4-a773-\
+d7010c150673"],
+
+Cell[TextData[StyleBox["1. Describe the Relationship.  ",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.74806838358049*^9, 3.7480684427876043`*^9}, 
+   3.748071099527852*^9},ExpressionUUID->"59b5c79c-e0dd-418b-a803-\
+ece9311ffb34"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.748068048205571*^9, 3.74806805134799*^9}, {
+  3.748069567709228*^9, 3.7480695851080923`*^9}},
+ NumberMarks->False,ExpressionUUID->"3b86fb07-2dcc-44ae-912b-8a5ec2e35d96"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+
+\
+\>", "Subsection",
+ CellChangeTimes->{{3.748068309489449*^9, 3.748068324742893*^9}, {
+  3.7480683673579607`*^9, 
+  3.748068378245047*^9}},ExpressionUUID->"90ffffa5-f22d-4401-a13b-\
+399fc7eaccac"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.748068046427946*^9, 
+  3.7480680465007353`*^9}},ExpressionUUID->"199b1c50-71b1-4a86-a1f9-\
+4e1947670145"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\n", "\t", "\n", "\t"}], "Text"]], "Input",
+ CellChangeTimes->{{3.74806715195028*^9, 3.7480671520906353`*^9}, {
+   3.74806721747637*^9, 3.748067313022686*^9}, {3.748067479782076*^9, 
+   3.748067483006057*^9}, 3.748067839773012*^9},
+ CellLabel->"",ExpressionUUID->"e4ae28e6-a2ac-4ff2-bb66-c4901644a01e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{810, 587},
+WindowMargins->{{156, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 242, 4, 107, "Title",ExpressionUUID->"1dbfefa8-5708-484f-806c-acaa36eaa38a"],
+Cell[825, 28, 209, 5, 56, "Input",ExpressionUUID->"42cdd1e0-7dab-43cc-b526-38403ed640a0"],
+Cell[CellGroupData[{
+Cell[1059, 37, 182, 3, 65, "Subchapter",ExpressionUUID->"526f60f5-6ac8-4a13-844e-653561e13d48"],
+Cell[1244, 42, 790, 15, 150, "Text",ExpressionUUID->"377b25b1-ab58-4998-b2ab-27c8e3cbe318"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2071, 62, 155, 3, 65, "Subchapter",ExpressionUUID->"c1941bb0-9f3d-433f-a7a4-896bf0b0cd17"],
+Cell[2229, 67, 528, 9, 81, "Text",ExpressionUUID->"6d9e8e14-512a-4537-8861-23456f12586c"],
+Cell[CellGroupData[{
+Cell[2782, 80, 148, 3, 67, "Section",ExpressionUUID->"5004f11c-f867-4cd6-b380-48957d27572e"],
+Cell[2933, 85, 2538, 75, 136, "Input",ExpressionUUID->"e74dd19b-2b13-4d18-a2c6-c1b1ecce14fe"],
+Cell[5474, 162, 731, 18, 73, "Input",ExpressionUUID->"fa7e740a-c126-46e1-9309-7278906904e0"],
+Cell[CellGroupData[{
+Cell[6230, 184, 184, 2, 30, "Input",ExpressionUUID->"822f7e9c-0392-4085-a69d-c40fa5f3ef70"],
+Cell[6417, 188, 1828, 65, 640, "Output",ExpressionUUID->"b6b19deb-c66a-491a-9865-c532a0e03e93"]
+}, Open  ]],
+Cell[8260, 256, 720, 17, 73, "Input",ExpressionUUID->"70bf7b44-ea69-4922-b3fd-75b23abacb24"],
+Cell[CellGroupData[{
+Cell[9005, 277, 1190, 27, 94, "Input",ExpressionUUID->"2ce8100e-84ab-4394-bd2e-92e0872ba0d5"],
+Cell[10198, 306, 2178, 55, 412, "Output",ExpressionUUID->"c31eb0b8-5c5d-40b2-b40b-7617e80ac24a"]
+}, Open  ]],
+Cell[12391, 364, 144, 2, 30, "Input",ExpressionUUID->"96c735ff-b9cc-46f9-93c8-62fcd863e6de"],
+Cell[12538, 368, 152, 3, 30, InheritFromParent,ExpressionUUID->"aa300c3c-bff0-47c4-a773-d7010c150673"],
+Cell[12693, 373, 238, 4, 35, "Text",ExpressionUUID->"59b5c79c-e0dd-418b-a803-ece9311ffb34"],
+Cell[12934, 379, 218, 3, 30, "Input",ExpressionUUID->"3b86fb07-2dcc-44ae-912b-8a5ec2e35d96"],
+Cell[CellGroupData[{
+Cell[13177, 386, 209, 8, 108, "Subsection",ExpressionUUID->"90ffffa5-f22d-4401-a13b-399fc7eaccac"],
+Cell[13389, 396, 154, 3, 30, InheritFromParent,ExpressionUUID->"199b1c50-71b1-4a86-a1f9-4e1947670145"],
+Cell[13546, 401, 338, 6, 77, "Input",ExpressionUUID->"e4ae28e6-a2ac-4ff2-bb66-c4901644a01e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
